@@ -1,0 +1,68 @@
+<!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+      <button mat-icon-button disabled></button>
+      <mat-icon class="mat-icon-rtl-mirror">{{node.type === 'folder' ? 'folder' : 'insert_drive_file'}}</mat-icon>
+      <span (click)="onFileClick(node)">{{node.name}}</span>
+    </mat-tree-node>
+  
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+      <button mat-icon-button matTreeNodeToggle
+              [attr.aria-label]="'toggle ' + node.name">
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      <mat-icon class="mat-icon-rtl-mirror">{{node.type === 'folder' ? 'folder' : 'insert_drive_file'}}</mat-icon>
+      <span (click)="onFileClick(node)">{{node.name}}</span>
+    </mat-tree-node>
+  </mat-tree>
+   -->
+
+   <!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+   
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild">
+      <li>
+        <div class="mat-tree-node">
+          <button mat-icon-button matTreeNodeToggle
+                  [attr.aria-label]="'toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          {{node.name}}
+        </div>
+        <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+          <ng-container matTreeNodeOutlet></ng-container>
+        </ul>
+      </li>
+    </mat-tree-node>
+    
+    <mat-tree-node *matTreeNodeDef="let node">
+      <li class="mat-tree-node">
+        <button mat-icon-button disabled></button>
+        {{node.name}}
+      </li>
+    </mat-tree-node>
+  </mat-tree> -->
+  
+
+  <ul>
+    <li *ngFor="let node of treeData">
+      <span (click)="node.type === 'folder' ? toggleNode(node) : null" class="node">
+        <mat-icon class="icon" [ngClass]="{'folder-icon': node.type === 'folder', 'file-icon': node.type === 'file'}">
+          {{ node.type === 'folder' ? 'folder' : 'insert_drive_file' }}
+        </mat-icon>
+        <mat-icon *ngIf="node.type === 'folder'" class="expand-collapse-icon" 
+                  [ngClass]="{'expand-icon': !isExpanded(node), 'collapse-icon': isExpanded(node)}">
+          {{ isExpanded(node) ? 'expand_more' : 'chevron_right' }}
+        </mat-icon>
+        {{ node.name }}
+      </span>
+      <ul *ngIf="node.type === 'folder' && isExpanded(node)">
+        <li *ngFor="let child of node.children">
+          <app-directory-tree [treeData]="[child]"></app-directory-tree>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  

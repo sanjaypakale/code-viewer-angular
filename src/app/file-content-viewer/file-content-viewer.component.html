@@ -1,0 +1,4 @@
+<div *ngIf="filePath">
+    <h3>{{ filePath }}</h3>
+    <pre [ngClass]="fileType"><code [innerHTML]="fileContent"></code></pre>
+</div>

@@ -1,0 +1,70 @@
+.example-tree {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+    /* General styles for the tree */
+.example-tree {
+  max-width: 600px;
+  margin: 20px auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fafafa;
+  padding: 10px;
+}
+
+/* Styles for tree nodes */
+.mat-tree-node, .mat-nested-tree-node {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.mat-tree-node:hover, .mat-nested-tree-node:hover {
+  background-color: #e0f7fa;
+}
+
+/* Icon button styles */
+.mat-icon-button {
+  margin-right: 8px;
+}
+
+.mat-icon-rtl-mirror {
+  transform: scaleX(-1);
+}
+
+/* Indent child nodes */
+.example-tree-invisible {
+  display: none;
+}
+
+/* Styles for expanded nodes */
+.mat-nested-tree-node .mat-tree-node {
+  padding-left: 20px;
+}
+
+
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+  margin: 0;
+}
+
+li {
+  margin: 5px 0;
+}
+
+.node {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.expand-collapse-icon {
+  margin-right: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,8 @@
+<div style="display: flex;">
+  <div style="flex: 1;">
+    <app-directory-tree (fileSelected)="onFileSelected($event)"></app-directory-tree>
+  </div>
+  <div style="flex: 3;">
+    <app-file-content-viewer [filePath]="selectedFile"></app-file-content-viewer>
+  </div>
+</div>

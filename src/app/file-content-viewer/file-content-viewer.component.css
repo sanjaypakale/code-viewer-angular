@@ -1,0 +1,26 @@
+
+  
+
+  pre {
+    background: #f5f2f0;
+    padding: 1em;
+    border-radius: 5px;
+    overflow: auto;
+  }
+  
+  pre.line-numbers {
+    padding-left: 3.8em; /* Adjust to fit the width of the line numbers */
+  }
+  
+  .line-numbers .line-numbers-rows {
+    border-right: 1px solid #999;
+  }
+  
+  .line-numbers-rows > span:before {
+    color: #999;
+    display: inline-block;
+    padding-right: 0.8em;
+    text-align: right;
+    width: 2.8em; /* Adjust to fit the width of the line numbers */
+  }
+  
